@@ -66,29 +66,29 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-museum-950/85 border-b border-slate-800/80 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Brand / Logo */}
+    <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-museum-950/90 border-b border-slate-800/80 transition-all duration-300">
+      <div className="w-full max-w-[1600px] mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 gap-2">
+          {/* Brand / Logo (Strictly unclipped, vertically centered, non-wrapping) */}
           <div 
             onClick={() => handleNavClick('home')}
-            className="flex items-center space-x-3 cursor-pointer group"
+            className="flex items-center space-x-2.5 cursor-pointer group flex-shrink-0 select-none mr-1"
           >
-            <div className="w-9 h-9 rounded-md bg-gradient-to-br from-slate-900 to-museum-900 border border-lanka-gold/40 flex items-center justify-center shadow-lg group-hover:border-lanka-gold transition-colors">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-md bg-gradient-to-br from-slate-900 to-museum-900 border border-lanka-gold/40 flex items-center justify-center shadow-lg group-hover:border-lanka-gold transition-colors flex-shrink-0">
               <span className="text-lanka-gold font-serif font-bold text-sm tracking-widest">SL</span>
             </div>
-            <div>
-              <span className="block font-serif font-semibold text-sm sm:text-base text-slate-100 tracking-wider group-hover:text-lanka-goldLight transition-colors">
+            <div className="flex flex-col justify-center flex-shrink-0">
+              <span className="font-serif font-semibold text-sm sm:text-base text-slate-100 tracking-wider group-hover:text-lanka-goldLight transition-colors whitespace-nowrap leading-tight">
                 SRI LANKA
               </span>
-              <span className="block text-[10px] text-slate-400 font-sans uppercase tracking-widest -mt-1 hidden sm:block">
+              <span className="text-[9px] sm:text-[10px] text-slate-400 font-sans uppercase tracking-widest hidden sm:block whitespace-nowrap leading-none mt-0.5">
                 The Journey of a Nation
               </span>
             </div>
           </div>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden xl:flex items-center space-x-1">
+          <nav className="hidden xl:flex items-center space-x-0.5 2xl:space-x-1 flex-shrink-0">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentView === item.id;
@@ -96,13 +96,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+                  className={`flex items-center space-x-1.5 px-2 2xl:px-2.5 py-1.5 rounded-md text-xs font-medium transition-all whitespace-nowrap flex-shrink-0 ${
                     isActive
                       ? 'text-lanka-gold bg-lanka-gold/10 border border-lanka-gold/30 shadow-sm'
                       : 'text-slate-300 hover:text-slate-100 hover:bg-slate-800/50'
                   }`}
                 >
-                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-lanka-gold' : 'text-slate-400'}`} />
+                  <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-lanka-gold' : 'text-slate-400'} flex-shrink-0`} />
                   <span>{item.label}</span>
                 </button>
               );
@@ -110,53 +110,53 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           {/* Utilities & Action Buttons */}
-          <div className="flex items-center space-x-2">
-            {/* Live Forex & USDT Quick Ticker Pill */}
+          <div className="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
+            {/* Live Forex & USDT Quick Ticker Pill (Never wraps, compact & single line) */}
             <button
               onClick={() => handleNavClick('economy')}
-              className="hidden md:flex items-center space-x-2 px-2.5 py-1 rounded-md bg-emerald-950/40 hover:bg-emerald-900/50 border border-emerald-800/60 text-emerald-300 text-[11px] font-mono transition-colors"
+              className="hidden lg:flex items-center space-x-1.5 px-2.5 py-1.5 rounded-md bg-emerald-950/40 hover:bg-emerald-900/50 border border-emerald-800/60 text-emerald-300 text-[11px] font-mono transition-colors whitespace-nowrap flex-shrink-0"
               title="Click to open Real-Time Forex & USDT Purchasing Power Terminal"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>$1 = Rs. {forex ? forex.rate.toFixed(1) : '329.8'}</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+              <span className="whitespace-nowrap font-medium">$1 = Rs. {forex ? forex.rate.toFixed(0) : '330'}</span>
               <span className="text-emerald-500/50">•</span>
-              <span className="text-teal-300">₮1 = Rs. {forex ? (forex.rate * 1.015).toFixed(1) : '334.8'}</span>
+              <span className="text-teal-300 whitespace-nowrap font-medium">₮1 = Rs. {forex ? (forex.rate * 1.015).toFixed(0) : '335'}</span>
             </button>
 
             {/* Search Trigger */}
             <button
               onClick={onOpenSearch}
-              className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-md bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-slate-100 text-xs transition-colors"
+              className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-md bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-slate-100 text-xs transition-colors whitespace-nowrap flex-shrink-0"
               title="Search Archive (Ctrl+K)"
             >
-              <Search className="w-3.5 h-3.5 text-slate-400" />
-              <span className="hidden sm:inline">Search</span>
-              <kbd className="hidden md:inline-block ml-1 px-1 py-0.2 bg-slate-800 border border-slate-700 rounded text-[9px] text-slate-400">⌘K</kbd>
+              <Search className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+              <span className="hidden xl:inline">Search</span>
+              <kbd className="hidden 2xl:inline-block ml-1 px-1 py-0.2 bg-slate-800 border border-slate-700 rounded text-[9px] text-slate-400">⌘K</kbd>
             </button>
 
             {/* Time Machine / Year Jump */}
             <button
               onClick={onOpenYearExplorer}
-              className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-md bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-lanka-gold text-xs transition-colors"
+              className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-md bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-lanka-gold text-xs transition-colors whitespace-nowrap flex-shrink-0"
               title="Time Machine (Year Explorer)"
             >
-              <Calendar className="w-3.5 h-3.5 text-lanka-gold" />
-              <span className="hidden lg:inline">{t.yearExplorer}</span>
+              <Calendar className="w-3.5 h-3.5 text-lanka-gold flex-shrink-0" />
+              <span className="hidden 2xl:inline">{t.yearExplorer}</span>
             </button>
 
             {/* Visual Story Mode Button */}
             <button
               onClick={onOpenStoryMode}
-              className="flex items-center space-x-1 px-2.5 py-1.5 rounded-md bg-lanka-maroon/20 hover:bg-lanka-maroon/30 border border-lanka-maroonLight/40 text-rose-200 text-xs transition-colors"
+              className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-md bg-lanka-maroon/20 hover:bg-lanka-maroon/30 border border-lanka-maroonLight/40 text-rose-200 text-xs transition-colors whitespace-nowrap flex-shrink-0"
               title="Enter Cinematic Documentary Story Mode"
             >
-              <Film className="w-3.5 h-3.5 text-lanka-maroonLight" />
-              <span className="hidden sm:inline">{t.storyMode}</span>
+              <Film className="w-3.5 h-3.5 text-lanka-maroonLight flex-shrink-0" />
+              <span className="hidden 2xl:inline">{t.storyMode}</span>
             </button>
 
             {/* Language Selector */}
-            <div className="relative flex items-center bg-slate-900/80 border border-slate-800 rounded-md p-0.5 text-xs">
-              <Globe className="w-3 h-3 text-slate-400 ml-1.5 mr-1" />
+            <div className="relative flex items-center bg-slate-900/80 border border-slate-800 rounded-md p-0.5 text-xs whitespace-nowrap flex-shrink-0">
+              <Globe className="w-3 h-3 text-slate-400 ml-1.5 mr-1 flex-shrink-0" />
               <button
                 onClick={() => onLangChange('en')}
                 className={`px-1.5 py-0.5 rounded text-[11px] font-medium transition-colors ${
@@ -183,8 +183,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             </div>
 
-            {/* Mobile Hamburger Button */}
-            <div className="flex xl:hidden">
+            {/* Mobile / Tablet Hamburger Button */}
+            <div className="flex xl:hidden flex-shrink-0">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-1.5 rounded-md text-slate-400 hover:text-slate-200 hover:bg-slate-800 focus:outline-none"
@@ -199,6 +199,18 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="xl:hidden bg-museum-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-1">
+          {/* Mobile Forex Pill */}
+          <div 
+            onClick={() => handleNavClick('economy')}
+            className="flex items-center justify-between px-3 py-2 mb-2 rounded-lg bg-emerald-950/40 border border-emerald-800/60 text-emerald-300 text-xs font-mono cursor-pointer"
+          >
+            <div className="flex items-center space-x-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>LIVE RATES</span>
+            </div>
+            <span>$1 = Rs. {forex ? forex.rate.toFixed(0) : '330'} • ₮1 = Rs. {forex ? (forex.rate * 1.015).toFixed(0) : '335'}</span>
+          </div>
+
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = currentView === item.id;
