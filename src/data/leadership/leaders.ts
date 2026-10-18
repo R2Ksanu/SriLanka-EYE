@@ -12,7 +12,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '1947-09-24',
     termEnd: '1952-03-22',
     yearsActive: '1947–1952',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/D._S._Senanayake.jpg/440px-D._S._Senanayake.jpg',
+    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Official_Photographic_Portrait_of_Don_Stephen_Senanayaka_%281884-1952%29.jpg/500px-Official_Photographic_Portrait_of_Don_Stephen_Senanayaka_%281884-1952%29.jpg',
     summary: 'Inaugural Prime Minister of Ceylon under the Soulbury Constitution, leading the nation to formal independence from Great Britain on February 4, 1948.',
     historicalContext: 'Post-World War II decolonization era. Ceylon entered independence with substantial sterling currency reserves and high export revenues from tea, rubber, and coconut.',
     documentedMajorEvents: [
@@ -55,7 +55,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '1960-07-21',
     termEnd: '1965-03-25',
     yearsActive: '1960–1965 & 1970–1977',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sirimavo_Bandaranaike_1970.jpg/440px-Sirimavo_Bandaranaike_1970.jpg',
+    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Bandaranaike_1974.jpg/500px-Bandaranaike_1974.jpg',
     summary: 'Became the world’s first elected female head of government in July 1960. Later led the United Front government (1970–1977) enacting the 1972 First Republican Constitution.',
     historicalContext: 'Cold War non-aligned diplomacy and transition from colonial export dependence to state-led import substitution industrialization policies.',
     documentedMajorEvents: [
@@ -100,7 +100,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '1972-05-22',
     termEnd: '1978-02-04',
     yearsActive: '1972–1978',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/William_Gopallawa.jpg/440px-William_Gopallawa.jpg',
+    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/JFKWHP-AR6771-B_%28cropped%29.jpg/500px-JFKWHP-AR6771-B_%28cropped%29.jpg',
     summary: 'Served as the last Governor-General of Ceylon (1962–1972) and became the first non-executive constitutional President upon the adoption of the 1972 Republican Constitution.',
     historicalContext: 'Constitutional transition severing formal dominion ties to the British Crown, establishing Sri Lanka as an independent, sovereign, and unitary Republic.',
     documentedMajorEvents: [
@@ -141,7 +141,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '1978-02-04',
     termEnd: '1989-01-02',
     yearsActive: '1978–1989',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/J._R._Jayewardene.jpg/440px-J._R._Jayewardene.jpg',
+    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/J._R._Jayawardene%2C_President_of_the_Democratic_Socialist_Republic_of_Sri_Lanka_on_June_20%2C_1984.jpg/500px-J._R._Jayawardene%2C_President_of_the_Democratic_Socialist_Republic_of_Sri_Lanka_on_June_20%2C_1984.jpg',
     summary: 'Architect of the 1978 Constitution establishing the Executive Presidency and the Open Economy policy, shifting Sri Lanka from state-led controls to market-oriented economic reforms.',
     historicalContext: 'South Asia’s first comprehensive market liberalization program, concurrent with escalating ethnic friction and political violence.',
     documentedMajorEvents: [
@@ -186,7 +186,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '1989-01-02',
     termEnd: '1993-05-01',
     yearsActive: '1989–1993',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Ranasinghe_Premadasa.jpg/440px-Ranasinghe_Premadasa.jpg',
+    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/President_premadasa.jpg/500px-President_premadasa.jpg',
     summary: 'Elected in December 1988 amid dual conflicts (JVP insurrection in the South and IPKF/LTTE war in the North). Emphasized decentralized industrialization and poverty alleviation.',
     historicalContext: 'Extremely volatile security climate in 1989-1990 followed by rapid expansion of rural manufacturing through garment sector exports.',
     documentedMajorEvents: [
@@ -230,7 +230,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '1993-05-01',
     termEnd: '1994-11-12',
     yearsActive: '1993–1994',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/D._B._Wijetunga.jpg/440px-D._B._Wijetunga.jpg',
+    portraitUrl: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMVRo3PxfwSNI2fZI-ynHFDw2qXquYPEEpvMaZO4vF3Pa1OuSiu4zscHo-fSp0IwBDD8Bt_x4T2hHtmOxFHWV_E6TxlW5sBP97VdjVslwTMVeeNLxm4seBlWRopsHDjZpT29j_plQp6w9c/s1600/DingiriBandaWijetunga.jpg',
     summary: 'Unanimously elected by Parliament on May 7, 1993 following the assassination of President Premadasa to complete the remainder of the term.',
     historicalContext: 'Transitional political period characterized by institutional stabilization and parliamentary power shift in the August 1994 general elections.',
     documentedMajorEvents: [
@@ -271,7 +271,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '1994-11-12',
     termEnd: '2005-11-19',
     yearsActive: '1994–2005',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Chandrika_Bandaranaike_Kumaratunga.jpg/440px-Chandrika_Bandaranaike_Kumaratunga.jpg',
+    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Chandrika_Kumaratunga_with_PM_Modi_%28cropped%29.jpg/500px-Chandrika_Kumaratunga_with_PM_Modi_%28cropped%29.jpg',
     summary: 'First female Executive President of Sri Lanka, serving two terms. Consolidated economic liberalization with social democratic commitments and led post-tsunami recovery.',
     historicalContext: 'Prolonged armed conflict (Eelam War III), Norwegian-facilitated 2002 Ceasefire Agreement, and the 2004 Indian Ocean Tsunami disaster.',
     documentedMajorEvents: [
@@ -315,7 +315,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '2005-11-19',
     termEnd: '2015-01-09',
     yearsActive: '2005–2015',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Mahinda_Rajapaksa_in_2014.jpg/440px-Mahinda_Rajapaksa_in_2014.jpg',
+    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/The_former_President_of_Sri_Lanka%2C_Mr._Mahinda_Rajapaksa_meeting_the_Prime_Minister%2C_Shri_Narendra_Modi%2C_in_New_Delhi_on_September_12%2C_2018_%281%29_%28cropped%29.JPG/500px-The_former_President_of_Sri_Lanka%2C_Mr._Mahinda_Rajapaksa_meeting_the_Prime_Minister%2C_Shri_Narendra_Modi%2C_in_New_Delhi_on_September_12%2C_2018_%281%29_%28cropped%29.JPG',
     summary: 'Served two terms as Executive President. Oversaw the military conclusion of the 26-year armed conflict in May 2009 and an extensive post-war public infrastructure expansion.',
     historicalContext: 'Intensification and military conclusion of the civil conflict, followed by extensive state-led and external bilateral debt-financed infrastructure building.',
     documentedMajorEvents: [
@@ -361,7 +361,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '2015-01-09',
     termEnd: '2019-11-18',
     yearsActive: '2015–2019',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Maithripala_Sirisena_2015.jpg/440px-Maithripala_Sirisena_2015.jpg',
+    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Maithripala-_Russia_%28portrait%29.jpg/500px-Maithripala-_Russia_%28portrait%29.jpg',
     summary: 'Elected on a good governance platform with coalition support. Enacted the 19th Constitutional Amendment curtailing presidential executive powers and re-establishing independent commissions.',
     historicalContext: 'Coalition national unity governance (Yahapalana) between SLFP and UNP, marked by internal policy friction and the 2019 Easter Sunday attacks.',
     documentedMajorEvents: [
@@ -405,7 +405,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '2019-11-18',
     termEnd: '2022-07-14',
     yearsActive: '2019–2022',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Gotabaya_Rajapaksa_in_2019.jpg/440px-Gotabaya_Rajapaksa_in_2019.jpg',
+    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Gotabaya_Rajapaksa_November_2019_crop.jpg/500px-Gotabaya_Rajapaksa_November_2019_crop.jpg',
     summary: 'Elected in November 2019. Administration coincided with the COVID-19 pandemic, severe macroeconomic and foreign currency reserve depletion, mass public demonstrations (Aragalaya), and eventual resignation.',
     historicalContext: 'A period marked by major fiscal tax cuts (Nov 2019), global pandemic trade/travel halts, overnight ban on chemical fertilizers (Apr 2021), and acute balance of payments crisis.',
     documentedMajorEvents: [
@@ -450,7 +450,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '2022-07-21',
     termEnd: '2024-09-23',
     yearsActive: '2022–2024',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Ranil_Wickremesinghe_in_2023.jpg/440px-Ranil_Wickremesinghe_in_2023.jpg',
+    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/President_Dr_Muizzu_meets_Sri_Lankan_President_Ranil_Wickremesinghe_%28cropped%29.jpg/500px-President_Dr_Muizzu_meets_Sri_Lankan_President_Ranil_Wickremesinghe_%28cropped%29.jpg',
     summary: 'Elected by Parliament on July 20, 2022 to serve the remainder of the vacant presidential term. Oversaw the negotiation of the IMF Extended Fund Facility, debt restructuring agreements, and macroeconomic stabilization.',
     historicalContext: 'Immediate aftermath of political upheaval and economic contraction; transition to tight fiscal and monetary policies under IMF auspices.',
     documentedMajorEvents: [
@@ -494,7 +494,7 @@ export const NATIONAL_LEADERS: NationalLeader[] = [
     termStart: '2024-09-23',
     termEnd: 'Incumbent',
     yearsActive: '2024–Present',
-    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Anura_Kumara_Dissanayake_official_portrait_2024.jpg/440px-Anura_Kumara_Dissanayake_official_portrait_2024.jpg',
+    portraitUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Dissanayake_2026.jpg/500px-Dissanayake_2026.jpg',
     summary: 'Elected in the September 2024 presidential election as leader of the National People’s Power (NPP). Focused on institutional anti-corruption, digital public infrastructure, and renegotiating specific tax and welfare parameters within the IMF framework.',
     historicalContext: 'First presidential election concluded following the 2022 economic crisis; marks a historic shift in Sri Lanka’s traditional two-party political architecture.',
     documentedMajorEvents: [

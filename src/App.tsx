@@ -15,12 +15,21 @@ import { YearExplorer } from '@/features/year/YearExplorer';
 import { ArchiveGallery } from '@/features/archive/ArchiveGallery';
 import { GlobalSearchModal } from '@/features/search/GlobalSearchModal';
 import { VisualStoryMode } from '@/features/story/VisualStoryMode';
+import { Image as ImageIcon, Sparkles, Check } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<string>('home');
   const [lang, setLang] = useState<Language>('en');
   const [searchModalOpen, setSearchModalOpen] = useState<boolean>(false);
   const [storyModeOpen, setStoryModeOpen] = useState<boolean>(false);
+  const [scenicBg, setScenicBg] = useState<'sigiriya' | 'tea' | 'ella' | 'minimal'>('sigiriya');
+  const [showBgMenu, setShowBgMenu] = useState<boolean>(false);
+
+  const BG_IMAGES: Record<string, string> = {
+    sigiriya: `${import.meta.env.BASE_URL}images/background/sigiriya-dawn.jpg`,
+    tea: `${import.meta.env.BASE_URL}images/background/tea-hills-mist.jpg`,
+    ella: `${import.meta.env.BASE_URL}images/background/ella-bridge-valley.jpg`,
+  };
 
   // Sync with URL Hash for seamless GitHub Pages navigation and sharing
   useEffect(() => {
@@ -57,7 +66,24 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-museum-950 text-slate-200 flex flex-col font-sans selection:bg-lanka-gold/30 selection:text-lanka-goldLight">
+    <div className="min-h-screen bg-museum-950 text-slate-200 flex flex-col font-sans selection:bg-lanka-gold/30 selection:text-lanka-goldLight relative">
+      {/* Serene Sri Lanka Scenic Background Backdrop */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+        {scenicBg !== 'minimal' && (
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 scale-[1.02]"
+            style={{ 
+              backgroundImage: `url(${BG_IMAGES[scenicBg]})`,
+              opacity: 0.16,
+              filter: 'saturate(0.92) brightness(0.9)'
+            }}
+          />
+        )}
+        {/* Museum Dark Grading Scrims for 100% typography contrast & readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-museum-950/92 via-museum-950/80 to-museum-950/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/5 via-transparent to-museum-950/60" />
+      </div>
+
       {/* Top Navbar */}
       <Navbar
         currentView={currentView}
@@ -70,7 +96,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full relative z-10">
         {currentView === 'home' && (
           <div className="space-y-12">
             {/* 3D WebGL Island Hero */}
@@ -98,7 +124,7 @@ export const App: React.FC = () => {
                 {/* Card 1: Timeline */}
                 <div 
                   onClick={() => handleViewChange('timeline')}
-                  className="p-6 rounded-2xl bg-museum-900 border border-slate-800 hover:border-lanka-gold/60 cursor-pointer transition-all space-y-3 group shadow-xl"
+                  className="p-6 rounded-2xl bg-museum-900/85 backdrop-blur-md border border-slate-800/80 hover:border-lanka-gold/60 cursor-pointer transition-all space-y-3 group shadow-xl"
                 >
                   <span className="text-xs font-mono uppercase text-lanka-gold">Chronology</span>
                   <h3 className="text-xl font-serif font-bold text-slate-100 group-hover:text-lanka-goldLight transition-colors">
@@ -115,7 +141,7 @@ export const App: React.FC = () => {
                 {/* Card 2: Economy */}
                 <div 
                   onClick={() => handleViewChange('economy')}
-                  className="p-6 rounded-2xl bg-museum-900 border border-slate-800 hover:border-lanka-gold/60 cursor-pointer transition-all space-y-3 group shadow-xl"
+                  className="p-6 rounded-2xl bg-museum-900/85 backdrop-blur-md border border-slate-800/80 hover:border-sky-400/60 cursor-pointer transition-all space-y-3 group shadow-xl"
                 >
                   <span className="text-xs font-mono uppercase text-sky-400">Intelligence</span>
                   <h3 className="text-xl font-serif font-bold text-slate-100 group-hover:text-sky-300 transition-colors">
@@ -132,7 +158,7 @@ export const App: React.FC = () => {
                 {/* Card 3: People */}
                 <div 
                   onClick={() => handleViewChange('people')}
-                  className="p-6 rounded-2xl bg-museum-900 border border-slate-800 hover:border-lanka-gold/60 cursor-pointer transition-all space-y-3 group shadow-xl"
+                  className="p-6 rounded-2xl bg-museum-900/85 backdrop-blur-md border border-slate-800/80 hover:border-emerald-400/60 cursor-pointer transition-all space-y-3 group shadow-xl"
                 >
                   <span className="text-xs font-mono uppercase text-emerald-400">Demographics</span>
                   <h3 className="text-xl font-serif font-bold text-slate-100 group-hover:text-emerald-300 transition-colors">
@@ -149,7 +175,7 @@ export const App: React.FC = () => {
                 {/* Card 4: Leadership */}
                 <div 
                   onClick={() => handleViewChange('leadership')}
-                  className="p-6 rounded-2xl bg-museum-900 border border-slate-800 hover:border-lanka-gold/60 cursor-pointer transition-all space-y-3 group shadow-xl"
+                  className="p-6 rounded-2xl bg-museum-900/85 backdrop-blur-md border border-slate-800/80 hover:border-amber-400/60 cursor-pointer transition-all space-y-3 group shadow-xl"
                 >
                   <span className="text-xs font-mono uppercase text-amber-400">Governance</span>
                   <h3 className="text-xl font-serif font-bold text-slate-100 group-hover:text-amber-300 transition-colors">
@@ -166,7 +192,7 @@ export const App: React.FC = () => {
                 {/* Card 5: Map & Time Map */}
                 <div 
                   onClick={() => handleViewChange('map')}
-                  className="p-6 rounded-2xl bg-museum-900 border border-slate-800 hover:border-lanka-gold/60 cursor-pointer transition-all space-y-3 group shadow-xl"
+                  className="p-6 rounded-2xl bg-museum-900/85 backdrop-blur-md border border-slate-800/80 hover:border-purple-400/60 cursor-pointer transition-all space-y-3 group shadow-xl"
                 >
                   <span className="text-xs font-mono uppercase text-purple-400">Cartography</span>
                   <h3 className="text-xl font-serif font-bold text-slate-100 group-hover:text-purple-300 transition-colors">
@@ -183,7 +209,7 @@ export const App: React.FC = () => {
                 {/* Card 6: Future Horizon & Wealth Simulator */}
                 <div 
                   onClick={() => handleViewChange('future')}
-                  className="p-6 rounded-2xl bg-museum-900 border border-slate-800 hover:border-emerald-500/60 cursor-pointer transition-all space-y-3 group shadow-xl"
+                  className="p-6 rounded-2xl bg-museum-900/85 backdrop-blur-md border border-slate-800/80 hover:border-emerald-500/60 cursor-pointer transition-all space-y-3 group shadow-xl"
                 >
                   <span className="text-xs font-mono uppercase text-emerald-400">Horizon 2026–2050</span>
                   <h3 className="text-xl font-serif font-bold text-slate-100 group-hover:text-emerald-300 transition-colors">
@@ -225,6 +251,60 @@ export const App: React.FC = () => {
         onClose={() => setStoryModeOpen(false)}
         lang={lang}
       />
+
+      {/* Floating Atmosphere & Scenic Backdrop Switcher */}
+      <div className="fixed bottom-5 right-5 z-40">
+        <div className="relative">
+          {showBgMenu && (
+            <div className="absolute bottom-12 right-0 mb-2 w-56 rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-slate-700/80 p-2.5 shadow-2xl space-y-1 text-xs font-sans animate-in fade-in slide-in-from-bottom-2 duration-200">
+              <div className="px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-lanka-gold border-b border-slate-800 pb-1.5 flex items-center justify-between">
+                <span>Scenic Ambience</span>
+                <Sparkles className="w-3 h-3 text-lanka-gold" />
+              </div>
+              {[
+                { id: 'sigiriya', label: 'Sigiriya Dawn', emoji: '🌅', desc: 'Misty Lion Rock sunrise' },
+                { id: 'tea', label: 'Highland Mist', emoji: '🍃', desc: 'Rolling emerald tea hills' },
+                { id: 'ella', label: 'Ella Valley', emoji: '🌉', desc: 'Lush tropical mountain range' },
+                { id: 'minimal', label: 'Minimal Dark', emoji: '🌑', desc: 'Deep museum obsidian' },
+              ].map(theme => (
+                <button
+                  key={theme.id}
+                  onClick={() => {
+                    setScenicBg(theme.id as any);
+                    setShowBgMenu(false);
+                  }}
+                  className={`w-full flex items-center justify-between p-2 rounded-xl text-left transition-all ${
+                    scenicBg === theme.id
+                      ? 'bg-lanka-gold/20 text-lanka-gold border border-lanka-gold/40'
+                      : 'hover:bg-slate-800 text-slate-300'
+                  }`}
+                >
+                  <div className="flex items-center space-x-2">
+                    <span className="text-sm">{theme.emoji}</span>
+                    <div>
+                      <div className="font-medium text-slate-100">{theme.label}</div>
+                      <div className="text-[10px] text-slate-400">{theme.desc}</div>
+                    </div>
+                  </div>
+                  {scenicBg === theme.id && <Check className="w-3.5 h-3.5 text-lanka-gold flex-shrink-0" />}
+                </button>
+              ))}
+            </div>
+          )}
+
+          <button
+            onClick={() => setShowBgMenu(!showBgMenu)}
+            className="flex items-center space-x-2 px-3.5 py-2 rounded-full bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 text-xs font-medium text-slate-200 shadow-xl backdrop-blur-md transition-all hover:border-lanka-gold/60 hover:text-lanka-gold"
+            title="Change Scenic Backdrop Ambience"
+          >
+            <ImageIcon className="w-3.5 h-3.5 text-lanka-gold" />
+            <span className="hidden sm:inline">Ambience</span>
+            <span className="text-xs">
+              {scenicBg === 'sigiriya' ? '🌅' : scenicBg === 'tea' ? '🍃' : scenicBg === 'ella' ? '🌉' : '🌑'}
+            </span>
+          </button>
+        </div>
+      </div>
 
       {/* Footer */}
       <Footer lang={lang} onViewChange={handleViewChange} />

@@ -330,7 +330,7 @@ export const ThreeIslandHero: React.FC<ThreeIslandHeroProps> = ({
   }, []);
 
   return (
-    <div className="relative w-full min-h-[92vh] flex flex-col justify-between overflow-hidden bg-gradient-to-b from-museum-950 via-museum-900 to-museum-950">
+    <div className="relative w-full min-h-[92vh] flex flex-col justify-between overflow-hidden bg-gradient-to-b from-museum-950/80 via-museum-900/35 to-museum-950">
       {/* 3D WebGL Canvas Container */}
       <div 
         ref={mountRef} 

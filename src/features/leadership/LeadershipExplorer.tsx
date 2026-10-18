@@ -23,6 +23,41 @@ interface LeadershipExplorerProps {
   lang: Language;
 }
 
+const getMedallionSvg = (name: string) => {
+  const initials = name
+    .split(' ')
+    .filter(n => !n.startsWith('(') && n.length > 0)
+    .map(n => n[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
+
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 240' width='200' height='240'>
+    <defs>
+      <linearGradient id='bgGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
+        <stop offset='0%' stop-color='#0f172a'/>
+        <stop offset='50%' stop-color='#020617'/>
+        <stop offset='100%' stop-color='#1e1b4b'/>
+      </linearGradient>
+      <linearGradient id='goldGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
+        <stop offset='0%' stop-color='#fbbf24'/>
+        <stop offset='100%' stop-color='#d97706'/>
+      </linearGradient>
+    </defs>
+    <rect width='200' height='240' fill='url(%23bgGrad)'/>
+    <circle cx='100' cy='105' r='55' fill='none' stroke='url(%23goldGrad)' stroke-width='2' stroke-dasharray='4,2'/>
+    <circle cx='100' cy='105' r='48' fill='#0f172a' stroke='url(%23goldGrad)' stroke-width='1.5'/>
+    <text x='100' y='116' fill='#fbbf24' font-family='serif' font-weight='bold' font-size='28' text-anchor='middle' letter-spacing='2'>${initials}</text>
+    <text x='100' y='185' fill='#94a3b8' font-family='sans-serif' font-size='10' text-anchor='middle' letter-spacing='1.5' font-weight='600'>STATE ARCHIVE</text>
+    <text x='100' y='200' fill='#d97706' font-family='sans-serif' font-size='8' text-anchor='middle' letter-spacing='2'>SRI LANKA</text>
+  </svg>`;
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+};
+
+const getLeaderImageSrc = (leaderId: string) => {
+  return `${import.meta.env.BASE_URL}images/leaders/${leaderId}.jpg`;
+};
+
 export const LeadershipExplorer: React.FC<LeadershipExplorerProps> = ({ lang }) => {
   const [selectedLeader, setSelectedLeader] = useState<NationalLeader>(NATIONAL_LEADERS[NATIONAL_LEADERS.length - 1]);
   const [compareMode, setCompareMode] = useState<boolean>(false);
@@ -34,6 +69,16 @@ export const LeadershipExplorer: React.FC<LeadershipExplorerProps> = ({ lang }) 
   const leaderB = NATIONAL_LEADERS.find(l => l.id === leaderBId) || NATIONAL_LEADERS[1];
 
   const getSource = (sourceId: string) => DATA_SOURCES.find(s => s.id === sourceId);
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, leader: NationalLeader) => {
+    const target = e.currentTarget;
+    if (!target.dataset.triedRemote && target.src !== leader.portraitUrl) {
+      target.dataset.triedRemote = 'true';
+      target.src = leader.portraitUrl;
+    } else {
+      target.src = getMedallionSvg(leader.name);
+    }
+  };
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
@@ -148,8 +193,40 @@ export const LeadershipExplorer: React.FC<LeadershipExplorerProps> = ({ lang }) 
               <thead className="bg-slate-900 text-slate-400 font-mono uppercase tracking-wider text-[11px] border-b border-slate-800">
                 <tr>
                   <th className="py-3 px-4 w-1/3">Indicator / Dimension</th>
-                  <th className="py-3 px-4 w-1/3 text-lanka-gold font-bold">{leaderA.name}</th>
-                  <th className="py-3 px-4 w-1/3 text-sky-400 font-bold">{leaderB.name}</th>
+                  <th className="py-3 px-4 w-1/3 text-lanka-gold font-bold">
+                    <div className="flex items-center space-x-2.5">
+                      <div className="w-8 h-8 rounded-full overflow-hidden bg-slate-950 border border-lanka-gold/60 flex-shrink-0">
+                        <img
+                          src={getLeaderImageSrc(leaderA.id)}
+                          alt={leaderA.name}
+                          className="w-full h-full object-cover"
+                          referrerPolicy="no-referrer"
+                          onError={(e) => handleImageError(e, leaderA)}
+                        />
+                      </div>
+                      <div>
+                        <div className="text-slate-100 text-xs font-semibold">{leaderA.name}</div>
+                        <div className="text-[10px] font-mono text-lanka-gold font-normal">{leaderA.yearsActive}</div>
+                      </div>
+                    </div>
+                  </th>
+                  <th className="py-3 px-4 w-1/3 text-sky-400 font-bold">
+                    <div className="flex items-center space-x-2.5">
+                      <div className="w-8 h-8 rounded-full overflow-hidden bg-slate-950 border border-sky-400/60 flex-shrink-0">
+                        <img
+                          src={getLeaderImageSrc(leaderB.id)}
+                          alt={leaderB.name}
+                          className="w-full h-full object-cover"
+                          referrerPolicy="no-referrer"
+                          onError={(e) => handleImageError(e, leaderB)}
+                        />
+                      </div>
+                      <div>
+                        <div className="text-slate-100 text-xs font-semibold">{leaderB.name}</div>
+                        <div className="text-[10px] font-mono text-sky-400 font-normal">{leaderB.yearsActive}</div>
+                      </div>
+                    </div>
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/80">
@@ -258,14 +335,12 @@ export const LeadershipExplorer: React.FC<LeadershipExplorerProps> = ({ lang }) 
                 <div className="flex items-center space-x-2">
                   <div className="w-7 h-7 rounded-full overflow-hidden bg-slate-950 flex-shrink-0 border border-slate-700">
                     <img 
-                      src={leader.portraitUrl} 
+                      src={getLeaderImageSrc(leader.id)} 
                       alt={leader.name} 
                       className="w-full h-full object-cover" 
                       loading="lazy" 
                       referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        e.currentTarget.src = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23111827'/><circle cx='50' cy='38' r='20' fill='%23cfa935'/><path d='M20 90 C20 65, 80 65, 80 90 Z' fill='%23cfa935'/></svg>";
-                      }}
+                      onError={(e) => handleImageError(e, leader)}
                     />
                   </div>
                   <div>
@@ -289,13 +364,11 @@ export const LeadershipExplorer: React.FC<LeadershipExplorerProps> = ({ lang }) 
           <div className="flex items-start space-x-5">
             <div className="w-24 h-28 sm:w-28 sm:h-36 rounded-xl overflow-hidden bg-slate-950 border-2 border-slate-700 shadow-xl flex-shrink-0">
               <img 
-                src={selectedLeader.portraitUrl} 
+                src={getLeaderImageSrc(selectedLeader.id)} 
                 alt={selectedLeader.name} 
                 className="w-full h-full object-cover" 
                 referrerPolicy="no-referrer"
-                onError={(e) => {
-                  e.currentTarget.src = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23111827'/><circle cx='50' cy='38' r='20' fill='%23cfa935'/><path d='M20 90 C20 65, 80 65, 80 90 Z' fill='%23cfa935'/></svg>";
-                }}
+                onError={(e) => handleImageError(e, selectedLeader)}
               />
             </div>
             <div className="space-y-1.5">
