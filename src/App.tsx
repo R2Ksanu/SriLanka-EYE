@@ -25,10 +25,11 @@ export const App: React.FC = () => {
   const [scenicBg, setScenicBg] = useState<'sigiriya' | 'tea' | 'ella' | 'minimal'>('sigiriya');
   const [showBgMenu, setShowBgMenu] = useState<boolean>(false);
 
+  const baseUrl = (import.meta as any).env?.BASE_URL || './';
   const BG_IMAGES: Record<string, string> = {
-    sigiriya: `${import.meta.env.BASE_URL}images/background/sigiriya-dawn.jpg`,
-    tea: `${import.meta.env.BASE_URL}images/background/tea-hills-mist.jpg`,
-    ella: `${import.meta.env.BASE_URL}images/background/ella-bridge-valley.jpg`,
+    sigiriya: `${baseUrl}images/background/sigiriya-dawn.jpg`,
+    tea: `${baseUrl}images/background/tea-hills-mist.jpg`,
+    ella: `${baseUrl}images/background/ella-bridge-valley.jpg`,
   };
 
   // Sync with URL Hash for seamless GitHub Pages navigation and sharing

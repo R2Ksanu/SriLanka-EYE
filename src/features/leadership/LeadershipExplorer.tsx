@@ -55,7 +55,8 @@ const getMedallionSvg = (name: string) => {
 };
 
 const getLeaderImageSrc = (leaderId: string) => {
-  return `${import.meta.env.BASE_URL}images/leaders/${leaderId}.jpg`;
+  const baseUrl = (import.meta as any).env?.BASE_URL || './';
+  return `${baseUrl}images/leaders/${leaderId}.jpg`;
 };
 
 export const LeadershipExplorer: React.FC<LeadershipExplorerProps> = ({ lang }) => {
